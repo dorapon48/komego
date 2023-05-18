@@ -25,6 +25,7 @@ function Create_Conversion_List(){
     let words = []; // 最終出力
     let kome_all = []; // 全てのコメ語になりえる組み合わせ
 
+    // 全ての組み合わせを生成
     for (let i = 0; i < kome_kana.length; i++){
         for (let j = 0; j < kome_kana.length; j++){
             for (let k = 0; k < kome_kana.length; k++){
@@ -32,17 +33,19 @@ function Create_Conversion_List(){
             }
         }
     }
-    console.log(kome_all);
-    /*
+
     for (let i = 0; i < kana.length; i++){
         let ja = kana[i];
-        let kome = "";
+        let rand = Math.floor( Math.random() * kome_all.length); // ランダムに選択
+        let obj = {
+            ja: ja,
+            kome: kome_all[rand]
+        };
 
-        while(true){
-            
-        }
+        words.push(obj);
+        kome_all.splice(rand, 1); // 選択済みの要素は削除
     }
-    */
+    console.log(words);
 }
 
 Create_Conversion_List();
