@@ -22,9 +22,18 @@ const kana = [
  * json生成
  */
 function Create_Conversion_List(){
-    let words = [];
-    let kome_all = [];
-    
+    let words = []; // 最終出力
+    let kome_all = []; // 全てのコメ語になりえる組み合わせ
+
+    for (let i = 0; i < kome_kana.length; i++){
+        for (let j = 0; j < kome_kana.length; j++){
+            for (let k = 0; k < kome_kana.length; k++){
+                kome_all.push(kome_kana[i] + kome_kana[j] + kome_kana[k]);
+            }
+        }
+    }
+    console.log(kome_all);
+    /*
     for (let i = 0; i < kana.length; i++){
         let ja = kana[i];
         let kome = "";
@@ -33,4 +42,7 @@ function Create_Conversion_List(){
             
         }
     }
+    */
 }
+
+Create_Conversion_List();
