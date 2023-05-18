@@ -1,5 +1,7 @@
 
-let fs = require('fs');
+const fs = require('fs'); // ファイル読み込み用
+const kome_kana = ["ガ", "ァ", "ギ", "ャ"]; // 変換先
+// 仮名
 const kana = [
     "あ", "い", "う", "え", "お",
     "か", "き", "く", "け", "こ",
@@ -16,10 +18,19 @@ const kana = [
     "っ", "ゎ", "゛", "゜"
 ];
 
+/**
+ * json生成
+ */
 function Create_Conversion_List(){
     let words = [];
+    let kome_all = [];
+    
     for (let i = 0; i < kana.length; i++){
         let ja = kana[i];
         let kome = "";
+
+        while(true){
+            
+        }
     }
 }
