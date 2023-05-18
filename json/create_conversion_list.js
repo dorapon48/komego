@@ -34,6 +34,7 @@ function Create_Conversion_List(){
         }
     }
 
+    // words変数に格納
     for (let i = 0; i < kana.length; i++){
         let ja = kana[i];
         let rand = Math.floor( Math.random() * kome_all.length); // ランダムに選択
@@ -45,7 +46,10 @@ function Create_Conversion_List(){
         words.push(obj);
         kome_all.splice(rand, 1); // 選択済みの要素は削除
     }
-    console.log(words);
+    
+    // 出力
+    let data = JSON.stringify({words: words}, null, ' ')
+    fs.writeFileSync('conversion_list.json', data);
 }
 
 Create_Conversion_List();
