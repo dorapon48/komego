@@ -24,4 +24,4 @@ function Kana_To_Kome(text){
     console.log(output);
 }
 
-Kana_To_Kome("だいすき！！！");
+Kana_To_Kome("てすとてきすと");
