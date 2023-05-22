@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-const ex = JSON.parse(fs.readFileSync('./json/conversion_list.json', 'utf8'));
+const ex = JSON.parse(fs.readFileSync('./json/conversion_list_8.json', 'utf8'));
 
 function Kana_To_Kome(text){
     let words = ex.words;
@@ -24,4 +24,4 @@ function Kana_To_Kome(text){
     console.log(output);
 }
 
-Kana_To_Kome("てすとてきすと");
+Kana_To_Kome("かわいい！");
