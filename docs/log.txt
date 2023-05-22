@@ -74,3 +74,9 @@ https://qiita.com/mimoe/items/855c112625d39b066c9a
 というかそういう関数を追加する
 Kana_To_Komeの相互変換は別物になるので分離
 よく考えたら相互変換する必要がなかった(カタカナを元に戻せないので)
+
+次は濁点, 半濁点を分離
+jsonファイルを用意するのが一番速そう
+行けるじゃねぇかあほ
+normalize('NFD')で濁点半濁点を分離できる
+https://qiita.com/jkr_2255/items/e0c039c438d3ebfd1a6a

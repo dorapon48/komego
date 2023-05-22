@@ -44,3 +44,4 @@ function Kata_To_Hira(text) {
 }
 
 console.log(Kata_To_Hira("パピプペポ"));
+console.log('ガギぐげ語'.normalize('NFD')) // => 'カ'
