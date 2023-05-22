@@ -1,6 +1,6 @@
 
 const fs = require('fs'); // ファイル読み込み用
-const kome_kana = ["ガ", "ァ", "ギ", "ャ"]; // 変換先
+const kome_kana = ["ガ", "ァ", "ギ", "ャ", "グ", "ゥ", "ー", "ッ"]; // 変換先
 // 仮名
 const kana = [
     "あ", "い", "う", "え", "お",
@@ -28,9 +28,7 @@ function Create_Conversion_List_8(){
     // 全ての組み合わせを生成
     for (let i = 0; i < kome_kana.length; i++){
         for (let j = 0; j < kome_kana.length; j++){
-            for (let k = 0; k < kome_kana.length; k++){
-                kome_all.push(kome_kana[i] + kome_kana[j] + kome_kana[k]);
-            }
+            kome_all.push(kome_kana[i] + kome_kana[j]);
         }
     }
 
