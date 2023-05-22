@@ -43,5 +43,13 @@ function Kata_To_Hira(text) {
     });
 }
 
-console.log(Kata_To_Hira("パピプペポ"));
-console.log('ガギぐげ語'.normalize('NFD')) // => 'カ'
+/**
+ * 文字列の濁点半濁点を分離する
+ * @param {String} text 
+ * @returns 濁点半濁点が分離した文字列
+ */
+function Dakuten_Separation(text){
+    return text.normalize('NFD');
+}
+
+console.log(Dakuten_Separation("パピプペポ"));
