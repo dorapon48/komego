@@ -60,9 +60,14 @@ create_conversion_list.jsを生成
 次は，漢字->ひらがな変換
 と，思ったがそもそも実装しないでおく
 読みが正しいかどうかの問題もあるが，元に戻せないため
-やるならhttps://developer.yahoo.co.jp/webapi/jlp/furigana/v2/furigana.htmlがよさそう
+やるならhttps://developer.yahoo.co.jp/webapi/jlp/furigana/v2/furigana.html
+がよさそう
 
 よって次はカタカナ->ひらがな変換
 変換対象に「ー」を入れておく(カタカナの変換を含めるため)
 今さらブランチを変更するスタイル
- - main.txtも変更しておく
+ - main.txtも変更しておく...ok
+ - カタカナ->ひらがな
+カタカナに0x60を引くことで相互変換できるらしいへぇ
+https://qiita.com/mimoe/items/855c112625d39b066c9a
+

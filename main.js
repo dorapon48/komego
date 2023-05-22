@@ -22,6 +22,15 @@ function Kana_To_Kome(text){
         }
     }
     console.log(output);
+    return output;
 }
 
-Kana_To_Kome("かわいい！");
+function Kata_To_Hira(str) {
+    // \u30a1-\u30f6はァ-ン
+    return str.replace(/[\u30a1-\u30f6]/g, function(match) {
+        var chr = match.charCodeAt(0) - 0x60; // カタカナ -> ひらがな
+        return String.fromCharCode(chr);
+    });
+}
+
+console.log(Kata_To_Hira("パピプペポ"));
