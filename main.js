@@ -48,7 +48,12 @@ function Kata_To_Hira(text) {
  * @returns 濁点半濁点が分離した文字列
  */
 function Dakuten_Separation(text){
-    return text.normalize('NFD');
+    let output = text.normalize('NFD');
+    // 特殊な濁点半濁点を置き換える
+    return output.replace(/[\u309a,\u3099]/g, function(match) {
+        let chr = match.charCodeAt(0) + 0x2;
+        return String.fromCharCode(chr);
+    });
 }
 
 function Hiragana_To_Kome(text){
@@ -58,9 +63,11 @@ function Hiragana_To_Kome(text){
     return tmp;
 }
 
-//console.log(Hiragana_To_Kome("パピプペポ"));
-//console.log(String.fromCharCode('パ'.normalize('NFD')[1].charCodeAt(0) + 1));
-for (let i = -2; i < 6; i++){
-    console.log(String.fromCharCode('ガ'.normalize('NFD')[1].charCodeAt(0) + i));
-}
+console.log(Hiragana_To_Kome("こんにちは"));
+// let t = 'ガ';
+// console.log((t.normalize('NFD')[1].charCodeAt(0)).toString(16));
+// console.log(String.fromCharCode(t.normalize('NFD')[1].charCodeAt(0)));
+// for (let i = -2; i < 6; i++){
+// console.log(String.fromCharCode('ガ'.normalize('NFD')[1].charCodeAt(0) + i));
+// }
 //console.log('゛'.charCodeAt(0));
