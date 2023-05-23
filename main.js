@@ -26,7 +26,6 @@ function Kana_To_Kome(text){
             output += text[i];
         }
     }
-    console.log(output);
     return output;
 }
 
@@ -38,7 +37,7 @@ function Kana_To_Kome(text){
 function Kata_To_Hira(text) {
     // \u30a1-\u30f6はァ-ン
     return text.replace(/[\u30a1-\u30f6]/g, function(match) {
-        var chr = match.charCodeAt(0) - 0x60; // 0x60で相互変換できる
+        let chr = match.charCodeAt(0) - 0x60; // 0x60で相互変換できる
         return String.fromCharCode(chr);
     });
 }
@@ -52,4 +51,16 @@ function Dakuten_Separation(text){
     return text.normalize('NFD');
 }
 
-console.log(Dakuten_Separation("パピプペポ"));
+function Hiragana_To_Kome(text){
+    let tmp = Kata_To_Hira(text);
+    tmp = Dakuten_Separation(tmp);
+    tmp = Kana_To_Kome(tmp);
+    return tmp;
+}
+
+//console.log(Hiragana_To_Kome("パピプペポ"));
+//console.log(String.fromCharCode('パ'.normalize('NFD')[1].charCodeAt(0) + 1));
+for (let i = -2; i < 6; i++){
+    console.log(String.fromCharCode('ガ'.normalize('NFD')[1].charCodeAt(0) + i));
+}
+//console.log('゛'.charCodeAt(0));
