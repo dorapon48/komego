@@ -56,14 +56,21 @@ function Dakuten_Separation(text){
     });
 }
 
-function Hiragana_To_Kome(text){
-    let tmp = Kata_To_Hira(text);
-    tmp = Dakuten_Separation(tmp);
-    tmp = Kana_To_Kome(tmp);
-    return tmp;
+/**
+ * 日本語をコメ語に変換
+ * 入力はカタカナ交じりのひらがなとする
+ * それ以外は無視される
+ * @param {String} text 
+ * @returns 
+ */
+function ja_To_Kome(text){
+    let output = Kata_To_Hira(text);
+    output = Dakuten_Separation(output);
+    output = Kana_To_Kome(output);
+    return output;
 }
 
-console.log(Hiragana_To_Kome("こんにちは！"));
+console.log(ja_To_Kome("hello！"));
 // let t = 'ガ';
 // console.log((t.normalize('NFD')[1].charCodeAt(0)).toString(16));
 // console.log(String.fromCharCode(t.normalize('NFD')[1].charCodeAt(0)));
