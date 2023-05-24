@@ -70,7 +70,7 @@ function ja_To_Kome(text){
     return output;
 }
 
-console.log(ja_To_Kome("hello！"));
+console.log(ja_To_Kome("画像を貼って！"));
 // let t = 'ガ';
 // console.log((t.normalize('NFD')[1].charCodeAt(0)).toString(16));
 // console.log(String.fromCharCode(t.normalize('NFD')[1].charCodeAt(0)));
