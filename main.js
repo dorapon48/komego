@@ -63,7 +63,7 @@ function Hiragana_To_Kome(text){
     return tmp;
 }
 
-console.log(Hiragana_To_Kome("こんにちは"));
+console.log(Hiragana_To_Kome("こんにちは！"));
 // let t = 'ガ';
 // console.log((t.normalize('NFD')[1].charCodeAt(0)).toString(16));
 // console.log(String.fromCharCode(t.normalize('NFD')[1].charCodeAt(0)));
