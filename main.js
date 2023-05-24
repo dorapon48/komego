@@ -1,6 +1,15 @@
 
 const fs = require('fs');
+// 変換先
 const ex = JSON.parse(fs.readFileSync('./json/conversion_list_8.json', 'utf8'));
+// 無視する記号(存在してもエラーメッセージを表示しない)
+const ignore_symbol_rep = /[\u0020-\u0040,\u005b-\u0060,\u007b-\u007e,\u3000-\u301e,\u30fb,\u30fc,\uff01-\uff20,\uff3b-\uff40,\uff5b-\uff65]/;
+const kome_rep = /[ガ,ギ,グ,ァ,ャ,ゥ,ー,ッ]/;
+const kome_upper_rep = /[ガ,ギ,グ]/;
+const kome_lower_rep = /[ァ,ャ,ゥ,ー,ッ]/;
+const kome = ["ガ", "ギ", "グ", "ァ", "ャ", "ゥ", "ー", "ッ"];
+const kome_upper = ["ガ", "ギ", "グ"];
+const kome_lower = ["ァ", "ャ", "ゥ", "ー", "ッ"];
 
 /**
  * ひらがな -> コメ語
@@ -57,20 +66,38 @@ function Dakuten_Separation(text){
 }
 
 /**
+ * コメ語の文字列の先頭にいづれかの文字を追加する
+ * @param {String} text 
+ * @returns 先頭に文字が追加された文字列
+ */
+function Add_FirstChr(text){
+    let i = text.search(kome_rep);
+    let rand = Math.floor( Math.random() * kome_upper.length);
+    return text.slice(0, i) + kome_upper[rand] + text.slice(i);
+}
+
+/**
  * 日本語をコメ語に変換
  * 入力はカタカナ交じりのひらがなとする
  * それ以外は無視される
  * @param {String} text 
  * @returns 
  */
-function ja_To_Kome(text){
+function Ja_To_Kome(text){
     let output = Kata_To_Hira(text);
     output = Dakuten_Separation(output);
     output = Kana_To_Kome(output);
+    // kome_lowerが先頭の場合追加
+    let first_kome = output.search(kome_rep);
+    if(output[first_kome].search(kome_lower_rep) != -1){
+        output = Add_FirstChr(output);
+    }
     return output;
 }
 
-console.log(ja_To_Kome("画像を貼って！"));
+console.log(Ja_To_Kome("こんにちは！"));
+//console.log("ててグててッガガガ"[5].search(kome_lower_rep));
+//console.log("てててて".search(kome_rep));
 // let t = 'ガ';
 // console.log((t.normalize('NFD')[1].charCodeAt(0)).toString(16));
 // console.log(String.fromCharCode(t.normalize('NFD')[1].charCodeAt(0)));
