@@ -14,7 +14,7 @@ const kome_lower = ["ァ", "ャ", "ゥ", "ー", "ッ"];
 /**
  * ひらがな -> コメ語
  * @param {String} text ひらがな(濁点, 半濁点を含む)
- * @returns コメ語
+ * @returns {String} コメ語
  */
 function Kana_To_Kome(text){
     let words = ex.words;
@@ -41,7 +41,7 @@ function Kana_To_Kome(text){
 /**
  * カタカナ -> ひらがな
  * @param {String} text カタカナを含む文字列
- * @returns ひらがなに変換された文字列
+ * @returns {String} ひらがなに変換された文字列
  */
 function Kata_To_Hira(text) {
     // \u30a1-\u30f6はァ-ン
@@ -54,7 +54,7 @@ function Kata_To_Hira(text) {
 /**
  * 文字列の濁点半濁点を分離する
  * @param {String} text 
- * @returns 濁点半濁点が分離した文字列
+ * @returns {String} 濁点半濁点が分離した文字列
  */
 function Dakuten_Separation(text){
     let output = text.normalize('NFD');
@@ -66,9 +66,9 @@ function Dakuten_Separation(text){
 }
 
 /**
- * コメ語の文字列の先頭にいづれかの文字を追加する
+ * コメ語の文字列の先頭にkome_upperのどれかを追加する
  * @param {String} text 
- * @returns 先頭に文字が追加された文字列
+ * @returns {String} 先頭に文字が追加された文字列
  */
 function Add_FirstChr(text){
     let i = text.search(kome_rep);
@@ -77,11 +77,31 @@ function Add_FirstChr(text){
 }
 
 /**
+ * 文字列中のコメ語の最初の文字を削除するかどうか判定する．
+ * @param {String} text 
+ * @returns {boolean} 消すときはtrue
+ */
+function Head_checker(text){
+    let reg = new RegExp(kome_rep, "g");
+    let output = text.match(reg);
+    console.log(output);
+    // null
+    if (!output){
+        return false;
+    }
+
+    if (output.length % 2 != 0){
+        return true;
+    }
+    return false;
+}
+
+/**
  * 日本語をコメ語に変換
  * 入力はカタカナ交じりのひらがなとする
  * それ以外は無視される
  * @param {String} text 
- * @returns 
+ * @returns {String} コメ語
  */
 function Ja_To_Kome(text){
     let output = Kata_To_Hira(text);
@@ -96,6 +116,7 @@ function Ja_To_Kome(text){
 }
 
 console.log(Ja_To_Kome("こんにちは！"));
+console.log(Head_checker("ーーャゥッゥグゥギギ！！"))
 //console.log("ててグててッガガガ"[5].search(kome_lower_rep));
 //console.log("てててて".search(kome_rep));
 // let t = 'ガ';
