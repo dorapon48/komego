@@ -77,6 +77,16 @@ function Add_FirstChr(text){
 }
 
 /**
+ * コメ語の文字列の先頭を削除する
+ * @param {String} text 
+ * @returns {String} 先頭に文字が削除された文字列
+ */
+function Delete_FirstChr(text){
+    let i = text.search(kome_rep);
+    return text.slice(0, i) + text.slice(i + 1);
+}
+
+/**
  * 文字列中のコメ語の最初の文字を削除するかどうか判定する．
  * @param {String} text 
  * @returns {boolean} 消すときはtrue
@@ -115,8 +125,8 @@ function Ja_To_Kome(text){
     return output;
 }
 
-console.log(Ja_To_Kome("こんにちは！"));
-console.log(Head_checker("ーーャゥッゥグゥギギ！！"))
+//console.log(Ja_To_Kome("え？"));
+console.log(Delete_FirstChr("ーーャゥッゥグゥギギ！！"));
 //console.log("ててグててッガガガ"[5].search(kome_lower_rep));
 //console.log("てててて".search(kome_rep));
 // let t = 'ガ';
