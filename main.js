@@ -39,6 +39,41 @@ function Kana_To_Kome(text){
 }
 
 /**
+ * コメ語 -> ひらがな
+ * @param {String} text コメ語(先頭処理済み)
+ * @returns {String} ひらがな
+ */
+function Kome_To_Kana(text){
+    let words = ex.words;
+    let input = text;
+    let output = "";
+    while(input != ""){
+        // コメ語とそれ以外でそれぞれ処理
+        if (input[0].search(kome_rep) != -1){
+            // 例外処理
+            if (input.length <= 1){
+                output += input;
+                input = "";
+                break;
+            }
+            const k = input[0] + input[1];
+            for (let i = 0; i < words.length; i++){
+                const obj = words[i];
+                if (k == obj.kome){
+                    output += obj.ja;
+                    break;
+                }
+            }
+            input = input.slice(2);
+        } else {
+            output += input[0];
+            input = input.slice(1);
+        }
+    }
+    return output;
+}
+
+/**
  * カタカナ -> ひらがな
  * @param {String} text カタカナを含む文字列
  * @returns {String} ひらがなに変換された文字列
@@ -125,8 +160,10 @@ function Ja_To_Kome(text){
     return output;
 }
 
-//console.log(Ja_To_Kome("え？"));
-console.log(Delete_FirstChr("ーーャゥッゥグゥギギ！！"));
+console.log(Ja_To_Kome("シークヮーサー"));
+console.log(Kome_To_Kana("ッァッギァゥャャッギッッッギ"));
+//console.log(Delete_FirstChr("ーーャゥッゥグゥギギ！！"));
+//console.log("test".slice(2));
 //console.log("ててグててッガガガ"[5].search(kome_lower_rep));
 //console.log("てててて".search(kome_rep));
 // let t = 'ガ';
