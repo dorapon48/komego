@@ -129,7 +129,6 @@ function Delete_FirstChr(text){
 function Head_checker(text){
     let reg = new RegExp(kome_rep, "g");
     let output = text.match(reg);
-    console.log(output);
     // null
     if (!output){
         return false;
@@ -160,8 +159,28 @@ function Ja_To_Kome(text){
     return output;
 }
 
-console.log(Ja_To_Kome("シークヮーサー"));
-console.log(Kome_To_Kana("ッァッギァゥャャッギッッッギ"));
+/**
+ * コメ語を日本語に変換
+ * @param {String} text コメ語
+ * @returns {String} 日本語
+ */
+function Kome_To_Ja(text){
+    let output = text;
+    if (Head_checker(text)){
+        output = Delete_FirstChr(output);
+    }
+    output = Kome_To_Kana(output);
+    return output;
+}
+
+//console.log(Ja_To_Kome("シークヮーサー"));
+//console.log(Kome_To_Kana("ッァッギァゥャャッギッッッギ"));
+let test = "かわいい！";
+console.log(test);
+test = Ja_To_Kome(test)
+console.log(test);
+test = Kome_To_Ja(test);
+console.log(test);
 //console.log(Delete_FirstChr("ーーャゥッゥグゥギギ！！"));
 //console.log("test".slice(2));
 //console.log("ててグててッガガガ"[5].search(kome_lower_rep));
