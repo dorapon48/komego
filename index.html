@@ -2,15 +2,39 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>コメ語変換</title>
+  <meta name="viewport" content="width=device-width">
+  <title>コメ語</title>
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="main.js"></script>
+  <!--
+    t
+  -->
 </head>
 <body>
   <div class="header"></div>
   <div class="main">
-    <h1>見出し</h1>
-    <p>コンテンツ</p>
+    <h1>コメ君が教える！！</h1>
+    <div class="description">
+      <p>コメ君が日本語をコメ語にしてくれるぞ！</p>
+      <p>...ひらがなだけだけど</p>
+    </div>
+    <div class="chat">
+      <div class="chat-outputs" name="chat-outputs">
+
+      </div>
+      <div class="chat-inputs">
+        <div class="chat-you">
+          <label>あなたへ:</label>
+          <input type="text" name="chat-you">
+          <input type="button" value="送る">
+        </div>
+        <div class="chat-kome">
+          <label>コメ君へ:</label>
+          <input type="text" name="chat-kome">
+          <input type="button" value="送る">
+        </div>
+      </div>
+    </div>
   </div>
   <div class="footer"></div>
 </body>
