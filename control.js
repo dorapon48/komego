@@ -13,7 +13,7 @@ function send_kome(){
 
     }
     element.value = "";
-    //document.getElementById(chat_outputs_id).appendChild(Create_Kome_Chat_Element("test"));
+    //document.getElementById(chat_outputs_id).appendChild(Create_You_Chat_Element("test"));
     return 0;
 }
 
@@ -37,5 +37,28 @@ function Create_Kome_Chat_Element(text){
 
     output.appendChild(img);
     output.appendChild(message);
+    return output;
+}
+
+/**
+ * あなたのメッセージのhtml要素を生成する
+ * @param {String} text メッセージ
+ * @returns {document.element} html要素
+ */
+function Create_You_Chat_Element(text){
+    // div class you
+    let output = document.createElement("div");
+    output.className = 'you';
+    // img
+    let img = document.createElement("img");
+    img.src = you_icon;
+    img.className = 'icon';
+    // div class message
+    let message = document.createElement("div");
+    message.className = 'message';
+    message.textContent = text;
+
+    output.appendChild(message);
+    output.appendChild(img);
     return output;
 }
