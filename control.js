@@ -9,11 +9,25 @@ const you_icon = 'images/test.jpg';
 function send_kome(){
     let element = document.getElementById(send_kome_id);
     let text = element.value;
-    if (text != ""){
-
+    // 例外処理
+    if (text == "" || !text){
+        return 0;
     }
+    
     element.value = "";
+    Add_Chat_Element(Create_You_Chat_Element(text));
     //document.getElementById(chat_outputs_id).appendChild(Create_You_Chat_Element("test"));
+    return 0;
+}
+
+/**
+ * html要素をchat-outputs,ID要素に追加する
+ * @param {document.element} element 
+ * @returns 0
+ */
+function Add_Chat_Element(element){
+    let parent = document.getElementById(chat_outputs_id)
+    parent.appendChild(element);
     return 0;
 }
 
