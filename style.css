@@ -21,18 +21,26 @@
 }
 
 .chat-outputs .kome{
-    margin-top: 8px;
+    margin-top: 16px;
     display: flex;
     align-items: center;
     gap: 4px;
 }
 
-.chat-outputs .kome .icon{
+.chat-outputs .you{
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+
+.chat-outputs .icon{
     width: 64px;
     height: 64px;
 }
 
-.chat-outputs .kome .message{
+.chat-outputs .message{
     max-width: 400px;
     border: 1px solid;
     border-color: black;
