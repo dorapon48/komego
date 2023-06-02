@@ -1,4 +1,6 @@
 
+import {Kome_To_Ja, } from "./main";
+
 const send_kome_id = "chat-kome";
 const send_you_id = "chat-you";
 const chat_outputs_id = "chat-outputs";
@@ -16,6 +18,8 @@ function send_kome(){
     
     element.value = "";
     Add_Chat_Element(Create_You_Chat_Element(text));
+    text = Ja_To_Kome(text);
+    Add_Chat_Element(Create_Kome_Chat_Element(text));
     //document.getElementById(chat_outputs_id).appendChild(Create_You_Chat_Element("test"));
     return 0;
 }
