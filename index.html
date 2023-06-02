@@ -6,6 +6,7 @@
   <title>コメ語</title>
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="control.js"></script>
   <!--
     t
   -->
@@ -19,7 +20,7 @@
       <p>...ひらがなだけだけど</p>
     </div>
     <div class="chat">
-      <div class="chat-outputs" name="chat-outputs">
+      <div class="chat-outputs" id="chat-outputs">
         <div class="test"></div>
         <div class="kome">
           <img src="images/kome.PNG" class="icon">
@@ -44,13 +45,13 @@
       <div class="chat-inputs">
         <div class="chat-you">
           <label>あなたへ:</label>
-          <input type="text" name="chat-you">
+          <input type="text" id="chat-you">
           <input type="button" value="送る">
         </div>
         <div class="chat-kome">
           <label>コメ君へ:</label>
-          <input type="text" name="chat-kome">
-          <input type="button" value="送る">
+          <input type="text" id="chat-kome">
+          <input type="button" value="送る" onclick="send_kome()">
         </div>
       </div>
     </div>
