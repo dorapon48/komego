@@ -1,7 +1,7 @@
 
-const fs = require('fs');
+import { readFileSync } from 'fs';
 // 変換先
-const ex = JSON.parse(fs.readFileSync('./json/conversion_list_8.json', 'utf8'));
+const ex = JSON.parse(readFileSync('./json/conversion_list_8.json', 'utf8'));
 // 無視する記号(存在してもエラーメッセージを表示しない)
 const ignore_symbol_rep = /[\u0020-\u0040,\u005b-\u0060,\u007b-\u007e,\u3000-\u301e,\u30fb,\u30fc,\uff01-\uff20,\uff3b-\uff40,\uff5b-\uff65]/;
 const kome_rep = /[ガ,ギ,グ,ァ,ャ,ゥ,ー,ッ]/;
@@ -10,6 +10,11 @@ const kome_lower_rep = /[ァ,ャ,ゥ,ー,ッ]/;
 const kome = ["ガ", "ギ", "グ", "ァ", "ャ", "ゥ", "ー", "ッ"];
 const kome_upper = ["ガ", "ギ", "グ"];
 const kome_lower = ["ァ", "ャ", "ゥ", "ー", "ッ"];
+
+// window.onload = (event) => {
+//     const fs = require('fs');
+//     ex = JSON.parse(fs.readFileSync('./json/conversion_list_8.json', 'utf8'));
+//   };
 
 /**
  * ひらがな -> コメ語
@@ -147,7 +152,7 @@ function Head_checker(text){
  * @param {String} text 
  * @returns {String} コメ語
  */
-function Ja_To_Kome(text){
+export function Ja_To_Kome(text){
     let output = Kata_To_Hira(text);
     output = Dakuten_Separation(output);
     output = Kana_To_Kome(output);
@@ -164,7 +169,7 @@ function Ja_To_Kome(text){
  * @param {String} text コメ語
  * @returns {String} 日本語
  */
-function Kome_To_Ja(text){
+export function Kome_To_Ja(text){
     let output = text;
     if (Head_checker(text)){
         output = Delete_FirstChr(output);
