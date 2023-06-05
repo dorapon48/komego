@@ -14,15 +14,17 @@ function App() {
         </div>
         <div className="chat">
           <div className="chat-outputs" id="chat-outputs"></div>
-          <div className="chat-you">
-            <label>あなたへ:</label>
-            <input type="text"/>
-            <input type="submit" value="送信"/>
-          </div>
-          <div className="chat-kome">
-            <label>コメ君へ:</label>
-            <input type="text"/>
-            <input type="submit" value="送信"/>
+            <div className="chat-inputs">
+              <div className="chat-you">
+                <label>あなたへ:</label>
+                <input type="text"/>
+                <input type="submit" value="送信"/>
+              </div>
+              <div className="chat-kome">
+                <label>コメ君へ:</label>
+                <input type="text"/>
+                <input type="submit" value="送信"/>
+            </div>
           </div>
         </div>
       </div>
