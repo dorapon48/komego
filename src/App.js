@@ -1,23 +1,32 @@
 import logo from './logo.svg';
+import test from './images/test.jpg'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header"></div>
+      <div className="main">
+        <h1>コメ君が教える！！</h1>
+        <div className="description">
+          <p>コメ君が日本語をコメ語にしてくれるぞ！</p>
+          <p>...ひらがなだけだけど</p>
+        </div>
+        <div className="chat">
+          <div className="chat-outputs" id="chat-outputs"></div>
+          <div className="chat-you">
+            <label>あなたへ:</label>
+            <input type="text"/>
+            <input type="submit" value="送信"/>
+          </div>
+          <div className="chat-kome">
+            <label>コメ君へ:</label>
+            <input type="text"/>
+            <input type="submit" value="送信"/>
+          </div>
+        </div>
+      </div>
+      <div className="footer"></div>
     </div>
   );
 }
