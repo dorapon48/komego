@@ -15,8 +15,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rm": "rm -rf docs",
+    "mv": "mv build docs",
+    "git": "git add . && git commit",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
+  "homepage": "https://dorapon48.github.io/komego/",
   "eslintConfig": {
     "extends": [
       "react-app",
