@@ -171,10 +171,14 @@ Cannot access 'ex' before initializationが発生
 分からん，あしたへ
 
 2023/06/05
-fix
+reactの追加
 
 非常に面倒で問題で解決する方法がよくわからないのでreactで作り直して解決する
 (強硬手段)
 とりあえずInit
 docsフォルダはデプロイ時に使用するので名前を変更
 一度コマンドを試してみる
+うまくいったらしい，pagesも試しておく
+大丈夫そう
+うまくいったんでマージ，feat/element_controlもマージ
+新しくブランチ切ってreactで再構成する
