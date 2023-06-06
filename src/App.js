@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-import test from './images/test.jpg'
+import test from './images/test.jpg';
+import Chat from './chat.js';
 import './App.css';
 
 function App() {
@@ -12,21 +13,7 @@ function App() {
           <p>コメ君が日本語をコメ語にしてくれるぞ！</p>
           <p>...ひらがなだけだけど</p>
         </div>
-        <div className="chat">
-          <div className="chat-outputs" id="chat-outputs"></div>
-            <div className="chat-inputs">
-              <div className="chat-you">
-                <label>あなたへ:</label>
-                <input type="text"/>
-                <input type="submit" value="送信"/>
-              </div>
-              <div className="chat-kome">
-                <label>コメ君へ:</label>
-                <input type="text"/>
-                <input type="submit" value="送信"/>
-            </div>
-          </div>
-        </div>
+        <Chat></Chat>
       </div>
       <div className="footer"></div>
     </div>
