@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <div className="header"></div>
       <div className="main">
-        <h1>コメ君が教える！！</h1>
         <div className="description">
+          <h1>コメ君が教える！！</h1>
           <p>コメ君が日本語をコメ語にしてくれるぞ！</p>
           <p>...ひらがなだけだけど</p>
         </div>

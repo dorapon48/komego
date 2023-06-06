@@ -6,13 +6,18 @@
 }
 
 .main{
-  width: 80%;
-  justify-content: center;
-  align-items: center;
+  width: 96%;
+  text-align: center;
+}
+
+.description{
+  display: inline-block;
+  text-align: left;
 }
 
 .chat{
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .chat-outputs{
@@ -58,6 +63,7 @@
 .chat-inputs{
   margin-top: 10px;
   display: flex;
+  text-align: left;
 }
 
 .chat-kome{
