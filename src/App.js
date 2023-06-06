@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import test from './images/test.jpg';
-import Chat from './chat.js';
+import Chat from './components/chat';
 import './App.css';
 
 function App() {
