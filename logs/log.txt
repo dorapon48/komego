@@ -199,3 +199,4 @@ reactで再構成３
 かわいい
 AA生成ページ: https://birdwatcheryt.github.io/software/aa/aa.html
 順調順調
+なんかPascalCaseで書けと怒られたので変更
