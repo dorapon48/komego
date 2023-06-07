@@ -1,19 +1,8 @@
 
 import { useRef, useState } from 'react';
 import './chat.css';
-import icon from '../images/test.jpg';
-
-function test2(test){
-    if (test == 'テスト'){
-        return (
-            <p>testtest</p>
-        )
-    }
-    return (
-        <p>test</p>
-    )
-    
-}
+import icon from '../images/you.jpg';
+import './chat_output.css';
 
 function Chat_Output_You(props) {
     const text = props.text;
@@ -23,7 +12,7 @@ function Chat_Output_You(props) {
           <div className="message">
             {text}
           </div>
-          <img src="images/test.jpg" className="icon"/>
+          <img src={icon} className="icon"/>
         </div>
     )
 }

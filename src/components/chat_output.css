@@ -1,0 +1,39 @@
+
+.kome{
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.you{
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+
+.icon{
+    width: 64px;
+    height: 64px;
+}
+
+.message{
+    max-width: 400px;
+    border: 1px solid;
+    border-color: black;
+    display: table-cell;
+    padding: 10px;
+    box-shadow: -4px 4px 0px 0 black;
+}
+
+.chat-inputs{
+    margin-top: 10px;
+    display: flex;
+    text-align: left;
+}
+
+.chat-kome{
+    margin-left: auto;
+}

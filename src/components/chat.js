@@ -1,6 +1,7 @@
 
 import { useRef, useState } from 'react';
 import './chat.css';
+import Chat_Output_You from './chat_you';
 
 function test2(test){
     if (test == 'テスト'){
@@ -31,6 +32,8 @@ function Chat() {
     return (
         <div className="chat">
             <div className="chat-outputs" id="chat-outputs">
+                <Chat_Output_You text="Test"></Chat_Output_You>
+                <Chat_Output_You text="てｓｔｔｓｔｓｔｓｔｓｔｓｔｓｔｔｓ"></Chat_Output_You>
                 { chats.map((chat) => (
                     test2(chat.chat)
                 ))}

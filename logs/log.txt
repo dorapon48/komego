@@ -197,3 +197,5 @@ reactで再構成３
 
 続き，余計なAAでも追加してやれ
 かわいい
+AA生成ページ: https://birdwatcheryt.github.io/software/aa/aa.html
+順調順調
