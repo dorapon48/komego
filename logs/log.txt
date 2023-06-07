@@ -202,3 +202,5 @@ AA生成ページ: https://birdwatcheryt.github.io/software/aa/aa.html
 なんかPascalCaseで書けと怒られたので変更
 脆弱性が云々の警告が出ているが無視しても良いとのこと
 チャットを追加する部分を追加
+なんかkeyを入力しやがれとの警告が出てくる(使わん)よってMath.random()で適当な数値を入力しておく
+おけ，次は，main.jsをモジュール化して組み込む
