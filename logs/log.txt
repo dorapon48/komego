@@ -200,3 +200,5 @@ reactで再構成３
 AA生成ページ: https://birdwatcheryt.github.io/software/aa/aa.html
 順調順調
 なんかPascalCaseで書けと怒られたので変更
+脆弱性が云々の警告が出ているが無視しても良いとのこと
+チャットを追加する部分を追加
