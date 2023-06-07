@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import './chat.css';
 import ChatOutputYou from './chat_you';
 import ChatOutputKome from './chat_kome';
+import { JaToKome, KomeToJa } from '../main';
 
 /**
  * チャットに内容をreactElementで返す
@@ -24,20 +25,25 @@ function AddChat(obj){
 
 
 function Chat() {
-    const you_chat_text = useRef(null);
-    const kome_chat_text = useRef(null);
+    const [you_chat_text, setYou] = useState("");
+    const [kome_chat_text, setKome] = useState("");
     const [chats, setChats] = useState([]);
 
     /**
      * あなたへの送信ボタンが押されたときの処理
      * @param {String} text 
      */
-    function ClickSubmitYou(text){
-        const t = {
+    const ClickSubmitYou = (text) => {
+        let t = {
             chat: text,
             who: false
         };
-        setChats([...chats, t]);
+        let t2 = {
+            chat: KomeToJa(text),
+            who: true
+        };
+        setChats([...chats, t, t2]);
+        setYou("");
     }
 
     /**
@@ -49,14 +55,19 @@ function Chat() {
             chat: text,
             who: true
         };
-        setChats([...chats, t]);
+        let t2 = {
+            chat: JaToKome(text),
+            who: false
+        };
+        setChats([...chats, t, t2]);
+        kome_chat_text.current = "";
     }
 
     return (
         <div className="chat">
             <div className="chat-outputs" id="chat-outputs">
-                <ChatOutputYou text='テストメッセージ'></ChatOutputYou>
-                <ChatOutputKome text='テストメッセージ'></ChatOutputKome>
+                {/* <ChatOutputYou text='テストメッセージ'></ChatOutputYou>
+                <ChatOutputKome text='テストメッセージ'></ChatOutputKome> */}
                 { chats.map((chat) => (
                     AddChat(chat)
                 ))}
@@ -64,13 +75,15 @@ function Chat() {
             <div className="chat-inputs">
                 <div className="chat-you">
                     <label>あなたへ:</label>
-                    <input type="text" ref={you_chat_text}/>
-                    <input type="submit" value="送信" onClick={() => ClickSubmitYou(you_chat_text.current.value)}/>
+                    <input type="text"
+                    onChange={(e) => setYou(e.target.value)}/>
+                    <input type="submit" value="送信" 
+                    onClick={() => ClickSubmitYou(you_chat_text)}/>
                 </div>
                 <div className="chat-kome">
                     <label>コメ君へ:</label>
-                    <input type="text" ref={kome_chat_text}/>
-                    <input type="submit" value="送信"/>
+                    <input type="text"/>
+                    <input type="submit" value="送信" onClick={() => ClickSubmitKome(kome_chat_text.current.value)}/>
                 </div>
             </div>
         </div>
