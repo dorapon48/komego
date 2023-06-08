@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './chat.css';
 import ChatOutputYou from './chat_you';
 import ChatOutputKome from './chat_kome';
@@ -41,16 +41,18 @@ function Chat() {
      * @param {String} text 
      */
     const ClickSubmitYou = (text) => {
-        let t = {
-            chat: text,
-            who: false
-        };
-        let t2 = {
-            chat: KomeToJa(text),
-            who: true
-        };
-        setChats([...chats, t, t2]);
-        setYou("");
+        if (text !== ""){
+            let t = {
+                chat: text,
+                who: false
+            };
+            let t2 = {
+                chat: KomeToJa(text),
+                who: true
+            };
+            setChats([...chats, t, t2]);
+            setYou("");
+        }
     }
 
     /**
@@ -58,16 +60,18 @@ function Chat() {
      * @param {String} text 
      */
     const ClickSubmitKome = (text) => {
-        let t = {
-            chat: text,
-            who: true
-        };
-        let t2 = {
-            chat: JaToKome(text),
-            who: false
-        };
-        setChats([...chats, t, t2]);
-        setKome("");
+        if (text !== ""){
+            let t = {
+                chat: text,
+                who: true
+            };
+            let t2 = {
+                chat: JaToKome(text),
+                who: false
+            };
+            setChats([...chats, t, t2]);
+            setKome("");
+        }
     }
 
     return (
