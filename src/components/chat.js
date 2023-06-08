@@ -1,5 +1,5 @@
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './chat.css';
 import ChatOutputYou from './chat_you';
 import ChatOutputKome from './chat_kome';
@@ -28,6 +28,13 @@ function Chat() {
     const [you_chat_text, setYou] = useState("");
     const [kome_chat_text, setKome] = useState("");
     const [chats, setChats] = useState([]);
+    
+    // スクロールを常に1番下にする
+    useEffect(() => {
+        let chatArea = document.getElementById('chat-outputs');
+        let chatAreaHeight = chatArea.scrollHeight;
+        chatArea.scrollTop = chatAreaHeight;
+    }, [chats]);
 
     /**
      * あなたへの送信ボタンが押されたときの処理
