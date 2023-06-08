@@ -50,7 +50,7 @@ function Chat() {
      * コメ君への送信ボタンが押されたときの処理
      * @param {String} text 
      */
-    function ClickSubmitKome(text){
+    const ClickSubmitKome = (text) => {
         let t = {
             chat: text,
             who: true
@@ -60,7 +60,7 @@ function Chat() {
             who: false
         };
         setChats([...chats, t, t2]);
-        kome_chat_text.current = "";
+        setKome("");
     }
 
     return (
@@ -76,14 +76,18 @@ function Chat() {
                 <div className="chat-you">
                     <label>あなたへ:</label>
                     <input type="text"
+                    value={you_chat_text}
                     onChange={(e) => setYou(e.target.value)}/>
                     <input type="submit" value="送信" 
                     onClick={() => ClickSubmitYou(you_chat_text)}/>
                 </div>
                 <div className="chat-kome">
                     <label>コメ君へ:</label>
-                    <input type="text"/>
-                    <input type="submit" value="送信" onClick={() => ClickSubmitKome(kome_chat_text.current.value)}/>
+                    <input type="text"
+                    value={kome_chat_text}
+                    onChange={(e) => setKome(e.target.value)}/>
+                    <input type="submit" value="送信" 
+                    onClick={() => ClickSubmitKome(kome_chat_text)}/>
                 </div>
             </div>
         </div>
