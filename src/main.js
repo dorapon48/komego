@@ -159,8 +159,10 @@ export const JaToKome = (text) => {
     output = Kana_To_Kome(output);
     // kome_lowerが先頭の場合追加
     let first_kome = output.search(kome_rep);
-    if(output[first_kome].search(kome_lower_rep) != -1){
-        output = Add_FirstChr(output);
+    if(first_kome != -1){
+        if(output[first_kome].search(kome_lower_rep) != -1){
+            output = Add_FirstChr(output);
+        }
     }
     return output;
 }
