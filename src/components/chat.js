@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import './chat.css';
 import ChatOutputYou from './chat_you';
 import ChatOutputKome from './chat_kome';
-import { JaToKome, KomeToJa } from '../main';
+import { JaToKome, KomeToJa, checkUnconvertedString } from '../main';
+import error_messages from '../json/error_message.json'
 
 /**
  * チャットに内容をreactElementで返す
@@ -61,15 +62,29 @@ function Chat() {
      */
     const ClickSubmitKome = (text) => {
         if (text !== ""){
+            const kome = JaToKome(text);
             let t = {
                 chat: text,
                 who: true
             };
             let t2 = {
-                chat: JaToKome(text),
+                chat: kome,
                 who: false
             };
-            setChats([...chats, t, t2]);
+            // エラーメッセージ(コメ君)の入力
+            if (checkUnconvertedString(kome)){
+                const ms = error_messages.errors;
+                const gagyagu = ["ガァ(", "ギャ(", "グゥ("];
+                let m = gagyagu[Math.floor( Math.random() * gagyagu.length)];
+                m += ms[Math.floor( Math.random() * ms.length)];
+                let t3 = {
+                    chat: m,
+                    who: false
+                };
+                setChats([...chats, t, t2, t3]);
+            } else {
+                setChats([...chats, t, t2]);
+            }
             setKome("");
         }
     }

@@ -181,6 +181,25 @@ export const KomeToJa = (text) => {
     return output;
 }
 
+/**
+ * コメ語以外の言葉が含まれているか判定する
+ * @param {String} text 
+ * @returns {boolean} 存在するときtrue
+ */
+export const checkUnconvertedString = (text) => {
+    // 例外処理
+    if (!text || text === ""){
+        return false;
+    }
+    let t = text;
+    t = t.replace(new RegExp(kome_rep, "g"), "");
+    t = t.replace(new RegExp(ignore_symbol_rep, "g"), "");
+    if (t.length === 0){
+        return false;
+    }
+    return true;
+}
+
 //console.log(Ja_To_Kome("シークヮーサー"));
 //console.log(Kome_To_Kana("ッァッギァゥャャッギッッッギ"));
 // let test = "かわいい！";
