@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/komego/static/css/main.073c9b0a.css",
-    "main.js": "/komego/static/js/main.10f6b92e.js",
+    "main.css": "/komego/static/css/main.52748425.css",
+    "main.js": "/komego/static/js/main.304bdb42.js",
     "static/js/787.b94a327f.chunk.js": "/komego/static/js/787.b94a327f.chunk.js",
-    "static/media/logo.svg": "/komego/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/kome.png": "/komego/static/media/kome.61b34cabb3d54b5ce9d5.png",
+    "static/media/you.jpg": "/komego/static/media/you.ba69e90be3ff0d77ac4b.jpg",
     "index.html": "/komego/index.html",
-    "main.073c9b0a.css.map": "/komego/static/css/main.073c9b0a.css.map",
-    "main.10f6b92e.js.map": "/komego/static/js/main.10f6b92e.js.map",
+    "main.52748425.css.map": "/komego/static/css/main.52748425.css.map",
+    "main.304bdb42.js.map": "/komego/static/js/main.304bdb42.js.map",
     "787.b94a327f.chunk.js.map": "/komego/static/js/787.b94a327f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.10f6b92e.js"
+    "static/css/main.52748425.css",
+    "static/js/main.304bdb42.js"
   ]
 }
