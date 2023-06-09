@@ -1,7 +1,8 @@
 
-import { readFileSync } from 'fs';
+// import { readFileSync } from 'fs';
+import ex from './json/conversion_list_8.json';
 // 変換先
-const ex = JSON.parse(readFileSync('./json/conversion_list_8.json', 'utf8'));
+//const ex = JSON.parse(readFileSync('./json/conversion_list_8.json', 'utf8'));
 // 無視する記号(存在してもエラーメッセージを表示しない)
 const ignore_symbol_rep = /[\u0020-\u0040,\u005b-\u0060,\u007b-\u007e,\u3000-\u301e,\u30fb,\u30fc,\uff01-\uff20,\uff3b-\uff40,\uff5b-\uff65]/;
 const kome_rep = /[ガ,ギ,グ,ァ,ャ,ゥ,ー,ッ]/;
@@ -152,14 +153,16 @@ function Head_checker(text){
  * @param {String} text 
  * @returns {String} コメ語
  */
-export function Ja_To_Kome(text){
+export const JaToKome = (text) => {
     let output = Kata_To_Hira(text);
     output = Dakuten_Separation(output);
     output = Kana_To_Kome(output);
     // kome_lowerが先頭の場合追加
     let first_kome = output.search(kome_rep);
-    if(output[first_kome].search(kome_lower_rep) != -1){
-        output = Add_FirstChr(output);
+    if(first_kome != -1){
+        if(output[first_kome].search(kome_lower_rep) != -1){
+            output = Add_FirstChr(output);
+        }
     }
     return output;
 }
@@ -169,7 +172,7 @@ export function Ja_To_Kome(text){
  * @param {String} text コメ語
  * @returns {String} 日本語
  */
-export function Kome_To_Ja(text){
+export const KomeToJa = (text) => {
     let output = text;
     if (Head_checker(text)){
         output = Delete_FirstChr(output);
@@ -178,14 +181,33 @@ export function Kome_To_Ja(text){
     return output;
 }
 
+/**
+ * コメ語以外の言葉が含まれているか判定する
+ * @param {String} text 
+ * @returns {boolean} 存在するときtrue
+ */
+export const checkUnconvertedString = (text) => {
+    // 例外処理
+    if (!text || text === ""){
+        return false;
+    }
+    let t = text;
+    t = t.replace(new RegExp(kome_rep, "g"), "");
+    t = t.replace(new RegExp(ignore_symbol_rep, "g"), "");
+    if (t.length === 0){
+        return false;
+    }
+    return true;
+}
+
 //console.log(Ja_To_Kome("シークヮーサー"));
 //console.log(Kome_To_Kana("ッァッギァゥャャッギッッッギ"));
-let test = "かわいい！";
-console.log(test);
-test = Ja_To_Kome(test)
-console.log(test);
-test = Kome_To_Ja(test);
-console.log(test);
+// let test = "かわいい！";
+// console.log(test);
+// test = Ja_To_Kome(test)
+// console.log(test);
+// test = Kome_To_Ja(test);
+// console.log(test);
 //console.log(Delete_FirstChr("ーーャゥッゥグゥギギ！！"));
 //console.log("test".slice(2));
 //console.log("ててグててッガガガ"[5].search(kome_lower_rep));
