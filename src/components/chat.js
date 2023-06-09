@@ -101,7 +101,7 @@ function Chat() {
             <div className="chat-inputs">
                 <div className="chat-you">
                     <label>あなたへ:</label>
-                    <input type="text"
+                    <input type="text" className="chat-inputs-you"
                     value={you_chat_text}
                     onChange={(e) => setYou(e.target.value)}/>
                     <input type="submit" value="送信" 
@@ -109,7 +109,7 @@ function Chat() {
                 </div>
                 <div className="chat-kome">
                     <label>コメ君へ:</label>
-                    <input type="text"
+                    <input type="text" className="chat-inputs-kome"
                     value={kome_chat_text}
                     onChange={(e) => setKome(e.target.value)}/>
                     <input type="submit" value="送信" 
